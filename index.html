@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional Layout</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="top-inner">
+        <div class="brand">Your Brand</div>
+
+        <div class="search-wrap">
+          <label class="sr-only" for="site-search">Search Website</label>
+          <input id="site-search" type="search" placeholder="Search Website" autocomplete="off" />
+          <ul id="search-results" class="search-results" hidden></ul>
+        </div>
+      </div>
+    </div>
+
+    <nav class="accent-bar" aria-label="Page navigation">
+      <div class="accent-inner">
+        <button type="button" class="nav-btn">Page 1</button>
+        <button type="button" class="nav-btn">Page 2</button>
+        <button type="button" class="nav-btn">Page 3</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="content" id="page-content">
+    <h1>RealDan</h1>
+    <p>This is a clean, professional starter layout.</p>
+    <p>Use the search bar to find matching text on this page and jump to it.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
