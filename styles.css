@@ -3,11 +3,11 @@
   --top-bar: #171d25;
   --accent: #ff8c00;
   --text: #1f1f1f;
-  --top-bar-height: 124px;
+  --top-bar-height: 150px;
   --accent-height: calc(var(--top-bar-height) * 0.25);
   --search-bg: #3e4956;
   --search-outline: #6d7b8c;
-  --offwhite-title: #f7f4ee;
+  --offwhite-title: #e1e0dc;
 }
 
 * {
@@ -52,16 +52,17 @@ body {
   gap: 1rem;
 }
 
-.top-inner::after {
+.top-bar::after {
   content: "";
   position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: min(960px, calc(100% - 3rem));
   height: 32px;
   background: radial-gradient(
     ellipse at center bottom,
-    rgba(255, 255, 255, 0.42) 0%,
+    rgba(255, 255, 255, 0.45) 0%,
     rgba(255, 255, 255, 0.28) 25%,
     rgba(255, 255, 255, 0) 70%
   );
@@ -69,8 +70,9 @@ body {
 }
 
 .brand {
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 600;
+  color: var(--offwhite-title);
   letter-spacing: 0.03em;
   align-self: flex-start;
 }
@@ -94,6 +96,11 @@ body {
   text-decoration: none;
   font-weight: 400;
   font-size: 0.95rem;
+}
+
+.page-btn.active {
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .page-btn:hover,
@@ -187,20 +194,6 @@ body {
   padding: 0 1.5rem;
 }
 
-.content h1 {
-  font-size: 3.2rem;
-  color: var(--offwhite-title);
-  margin-bottom: 1.25rem;
-}
-
-.content-section {
-  margin-bottom: 1.5rem;
-}
-
-.content h2 {
-  font-size: 1.35rem;
-  margin-bottom: 0.4rem;
-}
 
 .content p {
   font-size: 1rem;
