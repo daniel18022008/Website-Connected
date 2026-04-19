@@ -3,7 +3,7 @@
   --top-bar: #171d25;
   --accent: #ff8c00;
   --text: #1f1f1f;
-  --top-bar-height: 120px;
+  --top-bar-height: 150px;
   --accent-height: calc(var(--top-bar-height) * 0.25);
   --search-bg: #3e4956;
   --search-outline: #6d7b8c;
@@ -37,11 +37,11 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 28px;
+  height: 45px;
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.08) 35%,
+    rgba(255, 255, 255, 0.08) 50%,
     rgba(255, 255, 255, 0.16) 70%,
     rgba(255, 255, 255, 0.22) 100%
   );
@@ -78,8 +78,8 @@ body {
 
 #site-search {
   width: 100%;
-  height: 40px;
-  border-radius: 8px;
+  height: 35px;
+  border-radius: 2px;
   border: 1px solid var(--search-outline);
   background-color: var(--search-bg);
   color: #ffffff;
@@ -88,7 +88,7 @@ body {
 }
 
 #site-search::placeholder {
-  color: #d8e1eb;
+  color: #e0e0e0;
 }
 
 #site-search:focus {
@@ -102,7 +102,7 @@ body {
   top: calc(100% + 0.35rem);
   left: 0;
   right: 0;
-  background: #ffffff;
+  background: #3f4553;
   color: #1f1f1f;
   border: 1px solid #cad2db;
   border-radius: 8px;
@@ -142,7 +142,7 @@ body {
   border: none;
   background: transparent;
   color: #ffffff;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
 }
