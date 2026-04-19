@@ -59,7 +59,7 @@ body {
   transform: translateX(-50%);
   bottom: 0;
   width: min(960px, calc(100% - 3rem));
-  height: 32px;
+  height: 15px;
   background: radial-gradient(
     ellipse at center bottom,
     rgba(255, 255, 255, 0.45) 0%,
