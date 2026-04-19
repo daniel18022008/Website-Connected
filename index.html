@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional Layout</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="top-inner">
+        <div class="brand">Your Brand</div>
+
+        <div class="top-controls">
+          <nav class="page-nav" aria-label="Page navigation">
+            <a href="page1.html" class="page-btn">Page 1</a>
+            <a href="page2.html" class="page-btn">Page 2</a>
+            <a href="page3.html" class="page-btn">Page 3</a>
+            <a href="page4.html" class="page-btn">Page 4</a>
+            <a href="page5.html" class="page-btn">Page 5</a>
+          </nav>
+
+          <div class="search-wrap">
+            <label class="sr-only" for="site-search">Search Website</label>
+            <input id="site-search" type="search" placeholder="Search Website" autocomplete="off" />
+            <ul id="search-results" class="search-results" hidden></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="accent-bar" aria-label="Section navigation">
+      <div class="accent-inner">
+        <a href="#section-1" class="nav-btn">Section 1</a>
+        <a href="#section-2" class="nav-btn">Section 2</a>
+        <a href="#section-3" class="nav-btn">Section 3</a>
+        <a href="#section-4" class="nav-btn">Section 4</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="content" id="page-content">
+    <h1>RealDan</h1>
+
+    <section id="section-1" class="content-section">
+      <h2>Section 1</h2>
+      <p>This is a clean, professional starter layout.</p>
+    </section>
+
+    <section id="section-2" class="content-section">
+      <h2>Section 2</h2>
+      <p>Use the search bar to find matching text on this page and jump to it.</p>
+    </section>
+
+    <section id="section-3" class="content-section">
+      <h2>Section 3</h2>
+      <p>Search results appear in a dropdown and scroll to the selected content.</p>
+    </section>
+
+    <section id="section-4" class="content-section">
+      <h2>Section 4</h2>
+      <p>Highlighted matches are white text with an orange background.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
