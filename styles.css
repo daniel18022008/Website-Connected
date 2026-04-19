@@ -1,0 +1,47 @@
+:root {
+  --offwhite: #f8f6f1;
+  --black: #000000;
+  --text: #1f1f1f;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--offwhite);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.top-bar {
+  width: 100%;
+  background-color: var(--black);
+  color: #ffffff;
+  padding: 1rem 1.5rem;
+}
+
+.brand {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.content {
+  max-width: 960px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.content h1 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.content p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
