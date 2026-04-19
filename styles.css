@@ -3,7 +3,7 @@
   --top-bar: #171d25;
   --accent: #ff8c00;
   --text: #1f1f1f;
-  --top-bar-height: 96px;
+  --top-bar-height: 150px;
   --accent-height: calc(var(--top-bar-height) * 0.25);
 }
 
@@ -37,8 +37,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 14px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.22));
+  height: 30px;
+  background: linear-gradient(to bottom, rgba(49, 49, 49, 0), rgba(255, 255, 255, 0.1));
 }
 
 .accent-bar {
