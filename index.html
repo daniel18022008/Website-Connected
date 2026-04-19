@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional Layout</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <div class="top-inner">
+        <div class="brand">RealDan</div>
+
+        <div class="top-controls">
+          <nav class="page-nav" aria-label="Page navigation">
+            <a href="index.html" class="page-btn">Page 1</a>
+            <a href="page2.html" class="page-btn">Page 2</a>
+            <a href="page3.html" class="page-btn">Page 3</a>
+            <a href="page4.html" class="page-btn">Page 4</a>
+            <a href="page5.html" class="page-btn">Page 5</a>
+          </nav>
+
+          <div class="search-wrap">
+            <label class="sr-only" for="site-search">Search Website</label>
+            <input id="site-search" type="search" placeholder="Search Website" autocomplete="off" />
+            <ul id="search-results" class="search-results" hidden></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="accent-bar" aria-label="Section navigation">
+      <div class="accent-inner">
+        <a href="#" class="nav-btn">Section 1</a>
+        <a href="#" class="nav-btn">Section 2</a>
+        <a href="#" class="nav-btn">Section 3</a>
+        <a href="#" class="nav-btn">Section 4</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="games-hero" aria-label="Games feature image">
+    <div class="games-hero-inner">
+      <div class="games-image-placeholder" role="img" aria-label="Placeholder image">
+        <span class="games-overlay">Games</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="content" id="page-content"></main>
+
+  <script src="script.js"></script>
+</body>
+</html>
