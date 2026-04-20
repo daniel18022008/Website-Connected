@@ -10,8 +10,8 @@
   --background: #d8d2d2;
   --top-bar: #171d25;
   --top-bar-glow: rgba(255, 255, 255, 0.45);
-  --accent: #ff8c00;
-  --accent-dark: #db7400;
+  --accent: #1094ff;
+  --accent-dark: #006ed4;
   --text: #1f1f1f;
   --brand-color: #e1e0dc;
 
@@ -140,7 +140,7 @@ body {
   width: 65px;
   height: 65px;
   pointer-events: none;
-  filter: brightness(95%);
+  filter: brightness(60%);
   object-fit: contain;
 }
 
@@ -322,7 +322,7 @@ body {
 .games-overlay {
   position: absolute;
   left: 50%;
-  top: 64%;
+  top: 85%;
   transform: translate(-50%, -50%);
   font-size: 6rem;
   font-weight: 700;
