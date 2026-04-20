@@ -120,7 +120,7 @@ body {
   width: 75px;
   height: 75px;
   pointer-events: none;
-  filter: brightness(80%);
+  filter: brightness(95%);
   object-fit: contain;
 }
 
