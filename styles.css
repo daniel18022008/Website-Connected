@@ -5,13 +5,22 @@
   font-weight: 700;
 }
 
+
+@font-face {
+  font-family: "Big Deal";
+  src: url("Fonts/a_big_deal/aBigDeal.ttf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+
 :root {
   /* Theme colors */
   --background: #d8d2d2;
   --top-bar: #171d25;
   --top-bar-glow: rgba(255, 255, 255, 0.45);
-  --accent: #ff8c00;
-  --accent-dark: #db7400;
+  --accent: #0099ff;
+  --accent-dark: #008bdb;
   --text: #1f1f1f;
   --brand-color: #e1e0dc;
 
@@ -65,6 +74,7 @@ body {
 .content h1,
 .content p,
 .content a,
+.games-subtitle,
 .sr-only {
   font-family: "DIN Bold", Arial, Helvetica, sans-serif;
 }
@@ -78,6 +88,21 @@ body {
   padding: var(--top-bar-pad-top) var(--top-bar-pad-x) var(--top-bar-pad-bottom);
 }
 
+
+.top-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(var(--container-max-width), calc(100% - (var(--top-bar-pad-x) * 2)));
+  height: 96px;
+  
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 50%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 50%, transparent 100%);
+  pointer-events: none;
+}
+
 /* White glow on the bottom of the dark bar, centered in the main container */
 .top-bar::after {
   content: "";
@@ -87,12 +112,7 @@ body {
   bottom: 0;
   width: min(var(--container-max-width), calc(100% - (var(--top-bar-pad-x) * 2)));
   height: var(--glow-height);
-  background: radial-gradient(
-    ellipse at center bottom,
-    var(--top-bar-glow) 0%,
-    rgba(255, 255, 255, 0.25) 25%,
-    rgba(255, 255, 255, 0) 70%
-  );
+  
   pointer-events: none;
 }
 
@@ -152,6 +172,10 @@ body {
 .page-btn.active {
   color: var(--accent);
   font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
 }
 
 .page-btn:hover,
@@ -286,6 +310,7 @@ body {
   overflow: hidden;
 }
 
+
 .games-video {
   position: absolute;
   inset: 0;
@@ -297,10 +322,26 @@ body {
 .games-overlay {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 74%;
   transform: translate(-50%, -50%);
-  font-size: 2rem;
+  font-size: 6rem;
   font-weight: 700;
   color: #ffffff;
   text-align: center;
+  z-index: 2;
+  
+}
+
+.games-subtitle {
+  position: absolute;
+  left: 50%;
+  top: calc(74% + 68px);
+  transform: translateX(-50%);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  z-index: 2;
+  opacity: 0.92;
+  
 }
