@@ -10,7 +10,7 @@
   <header>
     <div class="top-bar">
       <div class="top-inner">
-        <img class="top-bar-logo" src="Images/logo.png" alt="Site logo" width="100" height="100" />
+        <img class="top-bar-logo" src="Images/logo.svg" alt="Site logo" width="100" height="100" />
 
 
         <div class="top-controls">
@@ -43,7 +43,18 @@
 
   <section class="games-hero" aria-label="Games feature image">
     <div class="games-hero-inner">
-      <div class="games-image-placeholder" role="img" aria-label="Placeholder image">
+      <div class="games-image-placeholder">
+        <video
+          class="games-video"
+          autoplay
+          loop
+          muted
+          playsinline
+          aria-label="Games background video"
+        >
+          <source src="Video/testvideo.webm" type="video/webm" />
+          Your browser does not support the background video.
+        </video>
         <span class="games-overlay">Games</span>
       </div>
     </div>
