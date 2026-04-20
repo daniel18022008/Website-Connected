@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">PC Icon</title>
+  <desc id="desc">Simple desktop computer icon in light tones.</desc>
+  <rect x="14" y="16" width="72" height="50" rx="4" fill="#dfe6f3" stroke="#8ea0bb" stroke-width="4"/>
+  <rect x="20" y="22" width="60" height="38" rx="2" fill="#1f2b3a"/>
+  <rect x="44" y="68" width="12" height="10" fill="#c8d2e3"/>
+  <rect x="30" y="78" width="40" height="6" rx="3" fill="#aebed5"/>
+</svg>

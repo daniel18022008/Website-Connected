@@ -14,7 +14,8 @@
   --top-bar-pad-x: 1.5rem;
   --top-bar-pad-top: 1rem;
   --top-bar-pad-bottom: 1.1rem;
-  --row-gap: 1rem;
+  --row-gap: 0.45rem;
+  --top-controls-bottom-gap: 5px;
 
   --accent-height: 38px;
   --accent-pad-x: 1.5rem;
@@ -86,9 +87,20 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   min-height: calc(var(--top-bar-height) - var(--top-bar-pad-top) - var(--top-bar-pad-bottom));
   gap: var(--row-gap);
+}
+
+.top-bar-pc {
+  position: absolute;
+  top: -0.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  pointer-events: none;
 }
 
 .brand {
@@ -97,6 +109,7 @@ body {
   color: var(--brand-color);
   letter-spacing: 0.02em;
   line-height: 1;
+  margin-top: auto;
 }
 
 /* Row containing left page links and right search */
@@ -106,6 +119,7 @@ body {
   justify-content: space-between;
   gap: 1rem;
   z-index: 2;
+  margin-bottom: var(--top-controls-bottom-gap);
 }
 
 .page-nav {
@@ -262,9 +276,10 @@ body {
 .games-overlay {
   position: absolute;
   left: 50%;
-  bottom: 1rem;
+  top: 50%;
+  transform: translate(-50%, -50%);
   font-size: 2rem;
   font-weight: 700;
   color: #ffffff;
-  
+  text-align: center;
 }
