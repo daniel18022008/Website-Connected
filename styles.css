@@ -344,3 +344,25 @@ body {
   opacity: 0.92;
   
 }
+
+.site-footer {
+  width: 100%;
+  background-color: var(--top-bar);
+  min-height: calc(var(--top-bar-height) * 0.5);
+  padding: 1rem var(--top-bar-pad-x);
+}
+
+.site-footer-inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-footer-logo {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  filter: brightness(95%);
+}
