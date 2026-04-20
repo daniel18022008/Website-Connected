@@ -95,13 +95,13 @@ body {
 
 .top-bar-logo {
   position: absolute;
-  top: -0.15rem;
+  top: 0.75rem;
   left: 50%;
   transform: translateX(-50%);
   width: 100px;
   height: 100px;
   pointer-events: none;
-  filter: brightness(20%);
+  filter: brightness(40%);
   object-fit: contain;
 }
 
