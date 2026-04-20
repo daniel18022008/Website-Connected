@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "DIN Bold";
+  src: url("Fonts/DIN Bold/DIN Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
 :root {
   /* Theme colors */
   --background: #d8d2d2;
@@ -44,10 +51,22 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
   background-color: var(--background);
   color: var(--text);
   min-height: 100vh;
+}
+
+.page-btn,
+.nav-btn,
+#site-search,
+.search-results li button,
+.games-overlay,
+.content,
+.content h1,
+.content p,
+.content a,
+.sr-only {
+  font-family: "DIN Bold", Arial, Helvetica, sans-serif;
 }
 
 .top-bar {
