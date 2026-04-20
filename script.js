@@ -135,6 +135,7 @@ function jumpToMatch(match, query) {
 }
 
 setActivePageLink();
+initHeaderDynamicGradientColor();
 
 if (searchInput && resultsList) {
   searchInput.addEventListener('input', (event) => {
@@ -150,4 +151,53 @@ if (searchInput && resultsList) {
       resultsList.hidden = true;
     }
   });
+}
+
+
+function initHeaderDynamicGradientColor() {
+  const video = document.querySelector('.games-video');
+  if (!(video instanceof HTMLVideoElement)) return;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = 1;
+  canvas.height = 1;
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  if (!ctx) return;
+
+  function applyAverageColor() {
+    if (video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) return;
+
+    try {
+      ctx.drawImage(video, 0, 0, 1, 1);
+      const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
+      document.documentElement.style.setProperty('--top-bar-dynamic-rgb', `${r}, ${g}, ${b}`);
+    } catch (_error) {
+      // Ignore frame sampling errors and keep the fallback color variable.
+    }
+  }
+
+  let colorInterval;
+
+  function startSampling() {
+    applyAverageColor();
+    if (colorInterval) return;
+    colorInterval = window.setInterval(applyAverageColor, 700);
+  }
+
+  function stopSampling() {
+    if (!colorInterval) return;
+    window.clearInterval(colorInterval);
+    colorInterval = undefined;
+  }
+
+  video.addEventListener('loadeddata', applyAverageColor);
+  video.addEventListener('play', startSampling);
+  video.addEventListener('pause', stopSampling);
+  video.addEventListener('ended', stopSampling);
+
+  if (!video.paused) {
+    startSampling();
+  } else {
+    applyAverageColor();
+  }
 }
