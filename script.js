@@ -135,6 +135,7 @@ function jumpToMatch(match, query) {
 }
 
 setActivePageLink();
+initHeaderDynamicGradientColor();
 
 if (searchInput && resultsList) {
   searchInput.addEventListener('input', (event) => {
@@ -151,3 +152,98 @@ if (searchInput && resultsList) {
     }
   });
 }
+
+
+function initHeaderDynamicGradientColor() {
+  const video = document.querySelector('.games-video');
+  if (!(video instanceof HTMLVideoElement)) return;
+
+  const canvas = document.createElement('canvas');
+  const sampleSize = 24;
+  canvas.width = sampleSize;
+  canvas.height = sampleSize;
+
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  if (!ctx) return;
+
+  let animationFrameId;
+  let lastSampleTime = 0;
+  let smoothed = [103, 178, 255];
+
+  function setGradientColor([r, g, b]) {
+    document.documentElement.style.setProperty(
+      '--top-bar-dynamic-rgb',
+      `${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)}`
+    );
+  }
+
+  function sampleFrameColor() {
+    if (video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) return null;
+
+    try {
+      ctx.drawImage(video, 0, 0, sampleSize, sampleSize);
+      const pixels = ctx.getImageData(0, 0, sampleSize, sampleSize).data;
+
+      let redTotal = 0;
+      let greenTotal = 0;
+      let blueTotal = 0;
+      let count = 0;
+
+      for (let i = 0; i < pixels.length; i += 4) {
+        redTotal += pixels[i];
+        greenTotal += pixels[i + 1];
+        blueTotal += pixels[i + 2];
+        count += 1;
+      }
+
+      if (!count) return null;
+      return [redTotal / count, greenTotal / count, blueTotal / count];
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  function tick(timestamp) {
+    if (!video.paused && !video.ended && timestamp - lastSampleTime >= 120) {
+      lastSampleTime = timestamp;
+      const sampled = sampleFrameColor();
+
+      if (sampled) {
+        const smoothing = 0.26;
+        smoothed = smoothed.map((value, index) => {
+          return value + (sampled[index] - value) * smoothing;
+        });
+        setGradientColor(smoothed);
+      }
+    }
+
+    animationFrameId = window.requestAnimationFrame(tick);
+  }
+
+  function startSampling() {
+    if (animationFrameId) return;
+    animationFrameId = window.requestAnimationFrame(tick);
+  }
+
+  function stopSampling() {
+    if (!animationFrameId) return;
+    window.cancelAnimationFrame(animationFrameId);
+    animationFrameId = undefined;
+  }
+
+  video.addEventListener('loadeddata', () => {
+    const sampled = sampleFrameColor();
+    if (sampled) {
+      smoothed = sampled;
+      setGradientColor(smoothed);
+    }
+  });
+  video.addEventListener('play', startSampling);
+  video.addEventListener('pause', stopSampling);
+  video.addEventListener('ended', stopSampling);
+
+  if (!video.paused) {
+    startSampling();
+  }
+}
+

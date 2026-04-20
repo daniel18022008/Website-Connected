@@ -10,8 +10,8 @@
   --background: #d8d2d2;
   --top-bar: #171d25;
   --top-bar-glow: rgba(255, 255, 255, 0.45);
-  --accent: #ff8c00;
-  --accent-dark: #db7400;
+  --accent: #1094ff;
+  --accent-dark: #006ed4;
   --text: #1f1f1f;
   --brand-color: #e1e0dc;
 
@@ -38,6 +38,7 @@
   --search-outline: #6d7b8c;
 
   --glow-height: 10px;
+  --top-bar-dynamic-rgb: 103, 178, 255;
 }
 
 * {
@@ -76,6 +77,25 @@ body {
   background-color: var(--top-bar);
   color: #ffffff;
   padding: var(--top-bar-pad-top) var(--top-bar-pad-x) var(--top-bar-pad-bottom);
+}
+
+
+.top-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(var(--container-max-width), calc(100% - (var(--top-bar-pad-x) * 2)));
+  height: 96px;
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--top-bar-dynamic-rgb), 0.38) 0%,
+    rgba(var(--top-bar-dynamic-rgb), 0) 100%
+  );
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 50%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 50%, transparent 100%);
+  pointer-events: none;
 }
 
 /* White glow on the bottom of the dark bar, centered in the main container */
@@ -120,7 +140,7 @@ body {
   width: 65px;
   height: 65px;
   pointer-events: none;
-  filter: brightness(95%);
+  filter: brightness(60%);
   object-fit: contain;
 }
 
@@ -152,6 +172,10 @@ body {
 .page-btn.active {
   color: var(--accent);
   font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
 }
 
 .page-btn:hover,
@@ -286,6 +310,7 @@ body {
   overflow: hidden;
 }
 
+
 .games-video {
   position: absolute;
   inset: 0;
@@ -297,10 +322,11 @@ body {
 .games-overlay {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 85%;
   transform: translate(-50%, -50%);
-  font-size: 2rem;
+  font-size: 6rem;
   font-weight: 700;
   color: #ffffff;
   text-align: center;
+  z-index: 2;
 }
