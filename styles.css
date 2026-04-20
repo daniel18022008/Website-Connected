@@ -78,6 +78,24 @@ body {
   padding: var(--top-bar-pad-top) var(--top-bar-pad-x) var(--top-bar-pad-bottom);
 }
 
+
+.top-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(var(--container-max-width), calc(100% - (var(--top-bar-pad-x) * 2)));
+  height: 220px;
+  background: radial-gradient(
+    ellipse at center top,
+    rgba(103, 178, 255, 0.48) 0%,
+    rgba(77, 154, 245, 0.3) 32%,
+    rgba(41, 105, 189, 0) 78%
+  );
+  pointer-events: none;
+}
+
 /* White glow on the bottom of the dark bar, centered in the main container */
 .top-bar::after {
   content: "";
@@ -152,6 +170,10 @@ body {
 .page-btn.active {
   color: var(--accent);
   font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
 }
 
 .page-btn:hover,
@@ -286,22 +308,6 @@ body {
   overflow: hidden;
 }
 
-.games-image-placeholder::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 240px;
-  background: radial-gradient(
-    ellipse at center top,
-    rgba(103, 178, 255, 0.45) 0%,
-    rgba(77, 154, 245, 0.3) 35%,
-    rgba(41, 105, 189, 0) 78%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
 
 .games-video {
   position: absolute;
@@ -309,7 +315,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
 }
 
 .games-overlay {
