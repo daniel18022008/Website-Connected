@@ -10,11 +10,13 @@
 
   /* Layout controls (adjust these first) */
   --container-max-width: 1200px;
-  --top-bar-height: 150px;
+  --top-bar-height: 165px;
   --top-bar-pad-x: 1.5rem;
   --top-bar-pad-top: 1rem;
   --top-bar-pad-bottom: 1.1rem;
-  --row-gap: 1rem;
+  --row-gap: 0.45rem;
+  --top-controls-bottom-gap: 2px;
+  --top-controls-drop: 10px;
 
   --accent-height: 38px;
   --accent-pad-x: 1.5rem;
@@ -86,9 +88,19 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   min-height: calc(var(--top-bar-height) - var(--top-bar-pad-top) - var(--top-bar-pad-bottom));
   gap: var(--row-gap);
+}
+
+.top-bar-logo-slot {
+  position: absolute;
+  top: -0.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
 }
 
 .brand {
@@ -97,6 +109,7 @@ body {
   color: var(--brand-color);
   letter-spacing: 0.02em;
   line-height: 1;
+  margin-top: auto;
 }
 
 /* Row containing left page links and right search */
@@ -106,6 +119,8 @@ body {
   justify-content: space-between;
   gap: 1rem;
   z-index: 2;
+  margin-bottom: var(--top-controls-bottom-gap);
+  transform: translateY(var(--top-controls-drop));
 }
 
 .page-nav {
@@ -188,15 +203,49 @@ body {
 }
 
 .accent-bar {
+  position: relative;
   width: 100%;
   height: var(--accent-height);
   display: flex;
   align-items: center;
   padding: 0 var(--accent-pad-x);
+  overflow: hidden;
+  isolation: isolate;
   background: linear-gradient(to bottom, var(--accent-dark) 0%, var(--accent) 24%, var(--accent) 100%);
 }
 
+.accent-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(40% 140% at 15% 50%, rgba(255, 218, 120, 0.44), rgba(255, 218, 120, 0) 68%),
+    radial-gradient(34% 130% at 52% 45%, rgba(255, 186, 72, 0.35), rgba(255, 186, 72, 0) 70%),
+    radial-gradient(42% 150% at 84% 55%, rgba(255, 230, 156, 0.4), rgba(255, 230, 156, 0) 72%);
+  mix-blend-mode: screen;
+  animation: orange-lava-flow 8.5s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes orange-lava-flow {
+  0% {
+    transform: translateX(-16%) scaleX(1);
+    filter: blur(6px) brightness(1);
+  }
+  50% {
+    transform: translateX(8%) scaleX(1.05);
+    filter: blur(5px) brightness(1.1);
+  }
+  100% {
+    transform: translateX(20%) scaleX(0.98);
+    filter: blur(7px) brightness(1.02);
+  }
+}
+
 .accent-inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
   display: flex;
   gap: 1.25rem;
@@ -262,9 +311,10 @@ body {
 .games-overlay {
   position: absolute;
   left: 50%;
-  bottom: 1rem;
+  top: 50%;
+  transform: translate(-50%, -50%);
   font-size: 2rem;
   font-weight: 700;
   color: #ffffff;
-  
+  text-align: center;
 }
