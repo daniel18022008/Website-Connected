@@ -10,8 +10,8 @@
   --background: #d8d2d2;
   --top-bar: #171d25;
   --top-bar-glow: rgba(255, 255, 255, 0.45);
-  --accent: #ff8c00;
-  --accent-dark: #db7400;
+  --accent: #0099ff;
+  --accent-dark: #008bdb;
   --text: #1f1f1f;
   --brand-color: #e1e0dc;
 
@@ -65,6 +65,7 @@ body {
 .content h1,
 .content p,
 .content a,
+.games-subtitle,
 .sr-only {
   font-family: "DIN Bold", Arial, Helvetica, sans-serif;
 }
@@ -341,4 +342,5 @@ body {
   text-align: center;
   z-index: 2;
   opacity: 0.92;
+  
 }
