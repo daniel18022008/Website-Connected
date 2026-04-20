@@ -63,6 +63,8 @@ body {
   background-color: var(--background);
   color: var(--text);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .page-btn,
@@ -270,6 +272,8 @@ body {
   margin: 0 auto;
   min-height: calc(100vh - var(--top-bar-height) - var(--accent-height));
   padding: 0 var(--accent-pad-x);
+  width: 100%;
+  flex: 1;
 }
 
 .search-hit {
@@ -344,4 +348,28 @@ body {
   z-index: 2;
   opacity: 0.92;
   
+}
+
+.site-footer {
+  width: 100%;
+  background-color: var(--top-bar);
+  min-height: calc(var(--top-bar-height) * 2);
+  display: flex;
+  align-items: center;
+  padding: 1.5rem var(--top-bar-pad-x);
+}
+
+.site-footer-inner {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-footer-logo {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
 }
