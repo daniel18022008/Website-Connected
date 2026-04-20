@@ -114,13 +114,13 @@ body {
 
 .top-bar-logo {
   position: absolute;
-  top: 0.75rem;
+  top: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   pointer-events: none;
-  filter: brightness(40%);
+  filter: brightness(80%);
   object-fit: contain;
 }
 
