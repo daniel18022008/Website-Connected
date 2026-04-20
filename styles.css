@@ -9,7 +9,7 @@
   --brand-color: #e1e0dc;
 
   /* Layout controls (adjust these first) */
-  --container-max-width: 960px;
+  --container-max-width: 1200px;
   --top-bar-height: 150px;
   --top-bar-pad-x: 1.5rem;
   --top-bar-pad-top: 1rem;
@@ -19,16 +19,16 @@
   --accent-height: 38px;
   --accent-pad-x: 1.5rem;
 
-  --brand-size: 3rem;
-  --page-link-size: 2rem;
-  --section-link-size: 2rem;
+  --brand-size: 2rem;
+  --page-link-size: 0.8rem;
+  --section-link-size: 0.95rem;
 
-  --search-width: 380px;
-  --search-height: 40px;
+  --search-width: 420px;
+  --search-height: 30px;
   --search-bg: #3e4956;
   --search-outline: #6d7b8c;
 
-  --glow-height: 30px;
+  --glow-height: 10px;
 }
 
 * {
@@ -141,7 +141,7 @@ body {
 #site-search {
   width: 100%;
   height: var(--search-height);
-  border-radius: 8px;
+  border-radius: 2px;
   border: 1px solid var(--search-outline);
   background-color: var(--search-bg);
   color: #ffffff;
@@ -242,7 +242,7 @@ body {
 
 .games-hero {
   padding: 0 var(--accent-pad-x);
-  margin-top: 0.7rem;
+  margin-top: 0rem;
 }
 
 .games-hero-inner {
@@ -253,19 +253,18 @@ body {
 .games-image-placeholder {
   position: relative;
   width: 100%;
-  min-height: 220px;
-  border-radius: 8px;
-  border: 1px solid #bcb6b6;
+  min-height: 700px;
+
   background: #cfc7c7;
   overflow: hidden;
 }
 
 .games-overlay {
   position: absolute;
-  left: 1rem;
+  left: 50%;
   bottom: 1rem;
   font-size: 2rem;
   font-weight: 700;
   color: #ffffff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  
 }
