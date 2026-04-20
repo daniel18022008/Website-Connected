@@ -117,8 +117,8 @@ body {
   top: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 75px;
-  height: 75px;
+  width: 65px;
+  height: 65px;
   pointer-events: none;
   filter: brightness(95%);
   object-fit: contain;
