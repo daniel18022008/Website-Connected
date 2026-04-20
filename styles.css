@@ -5,6 +5,15 @@
   font-weight: 700;
 }
 
+
+@font-face {
+  font-family: "Big Deal";
+  src: url("Fonts/a_big_deal/aBigDeal.ttf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+
 :root {
   /* Theme colors */
   --background: #d8d2d2;
@@ -88,11 +97,7 @@ body {
   transform: translateX(-50%);
   width: min(var(--container-max-width), calc(100% - (var(--top-bar-pad-x) * 2)));
   height: 96px;
-  background: linear-gradient(
-    to bottom,
-    rgba(103, 178, 255, 0.38) 0%,
-    rgba(41, 105, 189, 0) 100%
-  );
+  
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 50%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, #000 50%, transparent 100%);
   pointer-events: none;
@@ -322,19 +327,20 @@ body {
 .games-overlay {
   position: absolute;
   left: 50%;
-  top: 64%;
+  top: 74%;
   transform: translate(-50%, -50%);
   font-size: 6rem;
   font-weight: 700;
   color: #ffffff;
   text-align: center;
   z-index: 2;
+  
 }
 
 .games-subtitle {
   position: absolute;
   left: 50%;
-  top: calc(64% + 68px);
+  top: calc(74% + 68px);
   transform: translateX(-50%);
   font-size: 1.3rem;
   font-weight: 700;
