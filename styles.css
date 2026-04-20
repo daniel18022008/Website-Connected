@@ -142,7 +142,7 @@ body {
   width: 65px;
   height: 65px;
   pointer-events: none;
-  filter: brightness(95%);
+  opacity: 0.6;
   object-fit: contain;
 }
 
@@ -369,7 +369,9 @@ body {
 }
 
 .site-footer-logo {
-  width: 130px;
-  height: 130px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
+  opacity: 0.2;
+    
 }
