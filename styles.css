@@ -91,11 +91,12 @@
   --cardboard-gap-top: 0.75rem;
   --cardboard-height-ratio: 0.3333; /* 1/3 of hero height by default */
   --cardboard-height-max: 240px;
-  --cardboard-text: #111111;
+  --cardboard-text: #ffffff;
   --cardboard-text-font: "code_next", Arial, Helvetica, sans-serif;
   --cardboard-text-size: clamp(1.2rem, 2.5vw, 2rem);
   --cardboard-text-left: 50%;
   --cardboard-text-top: 50%;
+  --cardboard-image-scale: 0.9;
 
   /* Hero media size */
   --games-media-height: 700px;
@@ -421,6 +422,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(var(--cardboard-image-scale));
+  transform-origin: center;
 }
 
 .cardboard-banner-text {
