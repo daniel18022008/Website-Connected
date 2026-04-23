@@ -151,3 +151,17 @@ if (searchInput && resultsList) {
     }
   });
 }
+
+function setRandomHeroImages() {
+  const heroImages = document.querySelectorAll('.js-hero-image');
+  if (heroImages.length === 0) return;
+
+  const imagePool = Array.from({ length: 16 }, (_, i) => `Images/Games/img${i + 1}.jpg`);
+  const shuffled = imagePool.sort(() => Math.random() - 0.5);
+
+  heroImages.forEach((image, index) => {
+    image.src = shuffled[index % shuffled.length];
+  });
+}
+
+setRandomHeroImages();

@@ -41,32 +41,35 @@
     </nav>
   </header>
 
-  <section class="games-hero" aria-label="Games feature image">
+  <section class="games-hero" aria-label="Introduction banner">
     <div class="games-hero-inner">
       <div class="games-image-placeholder">
-        <video
-          class="games-video"
-          autoplay
-          loop
-          muted
-          playsinline
-          aria-label="Games background video"
-        >
-          <source src="Video/testvideo.webm" type="video/webm" />
-          Your browser does not support the background video.
-        </video>
-        <span class="games-overlay">REALDAN</span>
-        <span class="games-subtitle">A collection of self published projects</span>
-      </div>
-      <div class="cardboard-banner" aria-label="Custom cardboard image banner">
-        <img
-          class="cardboard-banner-image"
-          src="Images/cardboard.webp"
-          alt="Cardboard frame banner"
-          width="1200"
-          height="400"
-        />
-        <span class="cardboard-banner-text">Customize this banner text</span>
+        <div class="hero-side hero-side-left" aria-hidden="true">
+          <img class="hero-strip-image js-hero-image" src="Images/Games/img1.jpg" alt="" />
+          <img class="hero-strip-image js-hero-image" src="Images/Games/img2.jpg" alt="" />
+        </div>
+
+        <div class="hero-center-content">
+          <p class="hero-kicker">WELCOME TO MY WORLD</p>
+          <h1 class="games-overlay">REALDAN</h1>
+          <p class="games-subtitle">Games, systems, and interactive experiences.</p>
+          <p class="games-subtitle games-subtitle-second">Built with creativity and code.</p>
+
+          <div class="hero-actions">
+            <a class="hero-btn hero-btn-primary" href="#page-content">Explore Projects <span aria-hidden="true">→</span></a>
+            <a class="hero-btn hero-btn-secondary" href="page5.html">▶ Watch Reel</a>
+          </div>
+
+          <div class="hero-scroll">
+            <span>Scroll to explore</span>
+            <span aria-hidden="true">↓</span>
+          </div>
+        </div>
+
+        <div class="hero-side hero-side-right" aria-hidden="true">
+          <img class="hero-strip-image js-hero-image" src="Images/Games/img3.jpg" alt="" />
+          <img class="hero-strip-image js-hero-image" src="Images/Games/img4.jpg" alt="" />
+        </div>
       </div>
     </div>
   </section>
