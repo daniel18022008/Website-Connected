@@ -88,14 +88,15 @@
   --games-subtitle-top: calc(var(--games-title-top) + 68px);
 
   /* Cardboard banner controls */
-  --cardboard-gap-top: 0.75rem;
+  --cardboard-gap-top: 0;
   --cardboard-height-ratio: 0.3333; /* 1/3 of hero height by default */
   --cardboard-height-max: 240px;
-  --cardboard-text: #111111;
+  --cardboard-text: #ffffff;
   --cardboard-text-font: "code_next", Arial, Helvetica, sans-serif;
   --cardboard-text-size: clamp(1.2rem, 2.5vw, 2rem);
   --cardboard-text-left: 50%;
   --cardboard-text-top: 50%;
+  --cardboard-texture-size: 280px;
 
   /* Hero media size */
   --games-media-height: 700px;
@@ -414,13 +415,15 @@ body {
     calc(var(--games-media-height) * var(--cardboard-height-ratio))
   );
   overflow: hidden;
+
+  background-image: url("Images/cardboard.webp");
+  background-repeat: no-repeat;          /* stop tiling */
+  background-size: cover;                /* fill container */
+  background-position: center;           /* keep it centered */
 }
 
 .cardboard-banner-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: none;
 }
 
 .cardboard-banner-text {
