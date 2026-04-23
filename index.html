@@ -57,7 +57,7 @@
 
           <div class="hero-actions">
             <a class="hero-btn hero-btn-primary" href="#page-content">Explore Projects <span aria-hidden="true">→</span></a>
-            <a class="hero-btn hero-btn-secondary" href="page5.html">▶ Watch Reel</a>
+            <button class="hero-btn hero-btn-secondary js-open-reel" type="button">▶ Watch Reel</button>
           </div>
 
           <div class="hero-scroll">
@@ -75,6 +75,18 @@
   </section>
 
   <main class="content" id="page-content"></main>
+
+  <div class="reel-modal" id="reel-modal" hidden>
+    <div class="reel-modal-backdrop js-close-reel" aria-hidden="true"></div>
+    <div class="reel-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="reel-title">
+      <button class="reel-close js-close-reel" type="button" aria-label="Close reel">✕</button>
+      <h2 id="reel-title" class="reel-title">Watch Reel</h2>
+      <video class="reel-video" controls playsinline preload="metadata">
+        <source src="Video/testvideo.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="site-footer-inner">

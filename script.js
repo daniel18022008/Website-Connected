@@ -165,3 +165,39 @@ function setRandomHeroImages() {
 }
 
 setRandomHeroImages();
+
+const reelModal = document.getElementById('reel-modal');
+const openReelButton = document.querySelector('.js-open-reel');
+const closeReelButtons = document.querySelectorAll('.js-close-reel');
+const reelVideo = reelModal?.querySelector('.reel-video');
+
+function closeReel() {
+  if (!reelModal) return;
+  reelModal.hidden = true;
+  if (reelVideo instanceof HTMLVideoElement) {
+    reelVideo.pause();
+  }
+}
+
+function openReel() {
+  if (!reelModal) return;
+  reelModal.hidden = false;
+  if (reelVideo instanceof HTMLVideoElement) {
+    reelVideo.currentTime = 0;
+    reelVideo.play().catch(() => {});
+  }
+}
+
+if (openReelButton) {
+  openReelButton.addEventListener('click', openReel);
+}
+
+closeReelButtons.forEach((button) => {
+  button.addEventListener('click', closeReel);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeReel();
+  }
+});
