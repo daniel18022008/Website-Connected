@@ -13,6 +13,27 @@
   font-weight: 700;
 }
 
+@font-face {
+  font-family: "mont_blanc";
+  src: url("Fonts/mont_blanc/MontBlanc-Trial-Black.ttf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "madani_2";
+  src: url("Fonts/madani_2/MadaniArabicDEMO-Bold.ttf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "code_next";
+  src: url("Fonts/code_next/CodeNext-Trial-Bold.ttf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
 
 :root {
   /* Theme colors */
@@ -63,6 +84,8 @@ body {
   background-color: var(--background);
   color: var(--text);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .page-btn,
@@ -76,7 +99,7 @@ body {
 .content a,
 .games-subtitle,
 .sr-only {
-  font-family: "DIN Bold", Arial, Helvetica, sans-serif;
+  font-family: "code_next", Arial, Helvetica, sans-serif;
 }
 
 .top-bar {
@@ -140,7 +163,7 @@ body {
   width: 65px;
   height: 65px;
   pointer-events: none;
-  filter: brightness(95%);
+  opacity: 0.6;
   object-fit: contain;
 }
 
@@ -270,6 +293,8 @@ body {
   margin: 0 auto;
   min-height: calc(100vh - var(--top-bar-height) - var(--accent-height));
   padding: 0 var(--accent-pad-x);
+  width: 100%;
+  flex: 1;
 }
 
 .search-hit {
@@ -344,4 +369,30 @@ body {
   z-index: 2;
   opacity: 0.92;
   
+}
+
+.site-footer {
+  width: 100%;
+  background-color: var(--top-bar);
+  min-height: calc(var(--top-bar-height) * 2);
+  display: flex;
+  align-items: center;
+  padding: 1.5rem var(--top-bar-pad-x);
+}
+
+.site-footer-inner {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-footer-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  opacity: 0.2;
+    
 }
