@@ -13,6 +13,27 @@
   font-weight: 700;
 }
 
+@font-face {
+  font-family: "mont_blanc";
+  src: url("Fonts/mont_blanc/MontBlanc-Trial-Black.ttf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "madani_2";
+  src: url("Fonts/madani_2/MadaniArabicDEMO-Bold.ttf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "code_next";
+  src: url("Fonts/code_next/CodeNext-Trial-Bold.ttf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
 
 :root {
   /* Theme colors */
@@ -78,7 +99,7 @@ body {
 .content a,
 .games-subtitle,
 .sr-only {
-  font-family: "DIN Bold", Arial, Helvetica, sans-serif;
+  font-family: "code_next", Arial, Helvetica, sans-serif;
 }
 
 .top-bar {
