@@ -415,9 +415,11 @@ body {
     calc(var(--games-media-height) * var(--cardboard-height-ratio))
   );
   overflow: hidden;
+
   background-image: url("Images/cardboard.webp");
-  background-repeat: repeat;
-  background-size: var(--cardboard-texture-size);
+  background-repeat: no-repeat;          /* stop tiling */
+  background-size: cover;                /* fill container */
+  background-position: center;           /* keep it centered */
 }
 
 .cardboard-banner-image {
