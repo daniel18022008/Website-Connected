@@ -41,37 +41,52 @@
     </nav>
   </header>
 
-  <section class="games-hero" aria-label="Games feature image">
+  <section class="games-hero" aria-label="Introduction banner">
     <div class="games-hero-inner">
       <div class="games-image-placeholder">
-        <video
-          class="games-video"
-          autoplay
-          loop
-          muted
-          playsinline
-          aria-label="Games background video"
-        >
-          <source src="Video/testvideo.webm" type="video/webm" />
-          Your browser does not support the background video.
-        </video>
-        <span class="games-overlay">REALDAN</span>
-        <span class="games-subtitle">A collection of self published projects</span>
-      </div>
-      <div class="cardboard-banner" aria-label="Custom cardboard image banner">
-        <img
-          class="cardboard-banner-image"
-          src="Images/cardboard.webp"
-          alt="Cardboard frame banner"
-          width="1200"
-          height="400"
-        />
-        <span class="cardboard-banner-text">Customize this banner text</span>
+        <div class="hero-side hero-side-left" aria-hidden="true">
+          <img class="hero-strip-image hero-strip-outer js-hero-image" src="Images/Games/img1.jpg" alt="" />
+          <img class="hero-strip-image hero-strip-inner js-hero-image" src="Images/Games/img2.jpg" alt="" />
+        </div>
+
+        <div class="hero-center-content">
+          <p class="hero-kicker">WELCOME TO MY WEBSITE</p>
+          <h1 class="games-overlay">REALDAN</h1>
+          <p class="games-subtitle">Games, systems, and interactive experiences.</p>
+          <p class="games-subtitle games-subtitle-second">Built with creativity and code.</p>
+
+          <div class="hero-actions">
+            <a class="hero-btn hero-btn-primary" href="#page-content">Explore Projects <span aria-hidden="true">→</span></a>
+            <button class="hero-btn hero-btn-secondary js-open-reel" type="button">▶ Watch Reel</button>
+          </div>
+
+          <div class="hero-scroll">
+            <span>Scroll to explore</span>
+            <span aria-hidden="true">↓</span>
+          </div>
+        </div>
+
+        <div class="hero-side hero-side-right" aria-hidden="true">
+          <img class="hero-strip-image hero-strip-inner js-hero-image" src="Images/Games/img3.jpg" alt="" />
+          <img class="hero-strip-image hero-strip-outer js-hero-image" src="Images/Games/img4.jpg" alt="" />
+        </div>
       </div>
     </div>
   </section>
 
   <main class="content" id="page-content"></main>
+
+  <div class="reel-modal" id="reel-modal" hidden>
+    <div class="reel-modal-backdrop js-close-reel" aria-hidden="true"></div>
+    <div class="reel-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="reel-title">
+      <button class="reel-close js-close-reel" type="button" aria-label="Close reel">✕</button>
+      <h2 id="reel-title" class="reel-title">Watch Reel</h2>
+      <video class="reel-video" controls playsinline preload="metadata">
+        <source src="Video/testvideo.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="site-footer-inner">

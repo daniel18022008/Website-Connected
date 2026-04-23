@@ -151,3 +151,53 @@ if (searchInput && resultsList) {
     }
   });
 }
+
+function setRandomHeroImages() {
+  const heroImages = document.querySelectorAll('.js-hero-image');
+  if (heroImages.length === 0) return;
+
+  const imagePool = Array.from({ length: 16 }, (_, i) => `Images/Games/img${i + 1}.jpg`);
+  const shuffled = imagePool.sort(() => Math.random() - 0.5);
+
+  heroImages.forEach((image, index) => {
+    image.src = shuffled[index % shuffled.length];
+  });
+}
+
+setRandomHeroImages();
+
+const reelModal = document.getElementById('reel-modal');
+const openReelButton = document.querySelector('.js-open-reel');
+const closeReelButtons = document.querySelectorAll('.js-close-reel');
+const reelVideo = reelModal?.querySelector('.reel-video');
+
+function closeReel() {
+  if (!reelModal) return;
+  reelModal.hidden = true;
+  if (reelVideo instanceof HTMLVideoElement) {
+    reelVideo.pause();
+  }
+}
+
+function openReel() {
+  if (!reelModal) return;
+  reelModal.hidden = false;
+  if (reelVideo instanceof HTMLVideoElement) {
+    reelVideo.currentTime = 0;
+    reelVideo.play().catch(() => {});
+  }
+}
+
+if (openReelButton) {
+  openReelButton.addEventListener('click', openReel);
+}
+
+closeReelButtons.forEach((button) => {
+  button.addEventListener('click', closeReel);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeReel();
+  }
+});
