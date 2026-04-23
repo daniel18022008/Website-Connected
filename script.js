@@ -1,6 +1,7 @@
 const searchInput = document.getElementById('site-search');
 const resultsList = document.getElementById('search-results');
 const searchRoot = document.getElementById('page-content');
+const gameImages = document.querySelectorAll('.js-game-image');
 
 const escapedRegex = /[.*+?^${}()|[\]\\]/g;
 
@@ -134,7 +135,22 @@ function jumpToMatch(match, query) {
   mark.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
+function assignHeroImages() {
+  if (!gameImages.length) return;
+
+  const pool = Array.from({ length: 16 }, (_, index) => `Images/Games%20Games/img${index + 1}.jpg`);
+  const shuffled = pool
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+
+  gameImages.forEach((image, index) => {
+    image.src = shuffled[index % shuffled.length];
+  });
+}
+
 setActivePageLink();
+assignHeroImages();
 
 if (searchInput && resultsList) {
   searchInput.addEventListener('input', (event) => {
