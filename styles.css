@@ -36,6 +36,11 @@
 
 
 :root {
+  /* ================================
+     QUICK EDIT CONTROLS
+     Change these values to customize
+     ================================ */
+
   /* Theme colors */
   --background: #d8d2d2;
   --top-bar: #171d25;
@@ -68,6 +73,32 @@
   --search-outline: #6d7b8c;
 
   --glow-height: 10px;
+
+  /* Hero text controls */
+  --games-title-font: "code_next", Arial, Helvetica, sans-serif;
+  --games-title-size: 6rem;
+  --games-title-color: #ffffff;
+  --games-title-left: 50%;
+  --games-title-top: 74%;
+
+  --games-subtitle-font: "code_next", Arial, Helvetica, sans-serif;
+  --games-subtitle-size: 1.3rem;
+  --games-subtitle-color: #ffffff;
+  --games-subtitle-left: 50%;
+  --games-subtitle-top: calc(var(--games-title-top) + 68px);
+
+  /* Cardboard banner controls */
+  --cardboard-gap-top: 0.75rem;
+  --cardboard-height-ratio: 0.3333; /* 1/3 of hero height by default */
+  --cardboard-height-max: 240px;
+  --cardboard-text: #111111;
+  --cardboard-text-font: "code_next", Arial, Helvetica, sans-serif;
+  --cardboard-text-size: clamp(1.2rem, 2.5vw, 2rem);
+  --cardboard-text-left: 50%;
+  --cardboard-text-top: 50%;
+
+  /* Hero media size */
+  --games-media-height: 700px;
 }
 
 * {
@@ -98,6 +129,7 @@ body {
 .content p,
 .content a,
 .games-subtitle,
+.cardboard-banner-text,
 .sr-only {
   font-family: "code_next", Arial, Helvetica, sans-serif;
 }
@@ -329,7 +361,7 @@ body {
 .games-image-placeholder {
   position: relative;
   width: 100%;
-  min-height: 700px;
+  min-height: var(--games-media-height);
 
   background: #cfc7c7;
   overflow: hidden;
@@ -346,12 +378,13 @@ body {
 
 .games-overlay {
   position: absolute;
-  left: 50%;
-  top: 74%;
+  left: var(--games-title-left);
+  top: var(--games-title-top);
   transform: translate(-50%, -50%);
-  font-size: 6rem;
+  font-family: var(--games-title-font);
+  font-size: var(--games-title-size);
   font-weight: 700;
-  color: #ffffff;
+  color: var(--games-title-color);
   text-align: center;
   z-index: 2;
   
@@ -359,16 +392,50 @@ body {
 
 .games-subtitle {
   position: absolute;
-  left: 50%;
-  top: calc(74% + 68px);
+  left: var(--games-subtitle-left);
+  top: var(--games-subtitle-top);
   transform: translateX(-50%);
-  font-size: 1.3rem;
+  font-family: var(--games-subtitle-font);
+  font-size: var(--games-subtitle-size);
   font-weight: 700;
-  color: #ffffff;
+  color: var(--games-subtitle-color);
   text-align: center;
   z-index: 2;
   opacity: 0.92;
   
+}
+
+.cardboard-banner {
+  position: relative;
+  width: 100%;
+  margin-top: var(--cardboard-gap-top);
+  height: min(
+    var(--cardboard-height-max),
+    calc(var(--games-media-height) * var(--cardboard-height-ratio))
+  );
+  overflow: hidden;
+}
+
+.cardboard-banner-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardboard-banner-text {
+  position: absolute;
+  left: var(--cardboard-text-left);
+  top: var(--cardboard-text-top);
+  transform: translate(-50%, -50%);
+  font-family: var(--cardboard-text-font);
+  font-size: var(--cardboard-text-size);
+  font-weight: 700;
+  color: var(--cardboard-text);
+  text-align: center;
+  z-index: 2;
+  width: min(90%, 1000px);
+  pointer-events: none;
 }
 
 .site-footer {
