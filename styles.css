@@ -355,7 +355,7 @@ body {
 }
 
 .games-subtitle {
-  font-size: clamp(1rem, 1.1vw, 1.25rem);
+  font-size: clamp(0.8rem, 0.9vw, 1.05rem);
   font-weight: 400;
   color: #646f80;
   text-align: center;
@@ -379,7 +379,7 @@ body {
 }
 
 .hero-kicker {
-  color: #2c63e5;
+  color: #0099ff;
   font-size: clamp(0.75rem, 0.7vw, 0.9rem);
   letter-spacing: 0.22em;
   font-weight: 700;
@@ -410,13 +410,13 @@ body {
 }
 
 .hero-btn-primary {
-  background: #1d56e9;
+  background: #0099ff;
   color: #ffffff;
   box-shadow: 0 12px 22px -16px rgba(29, 86, 233, 0.85);
 }
 
 .hero-btn-secondary {
-  color: #1841a8;
+  color: #0099ff;
   border-color: rgba(133, 169, 255, 0.65);
   background:
     linear-gradient(140deg, rgba(255, 255, 255, 0.58), rgba(227, 238, 255, 0.26));
@@ -459,7 +459,7 @@ body {
 }
 
 .hero-strip-image {
-  width: calc((100% - clamp(0.65rem, 1.15vw, 1.15rem)) / 2);
+  width: calc((100% - clamp(0.3rem, 0.6vw, 0.6rem)) / 2);
   height: clamp(360px, 58vh, 500px);
   object-fit: cover;
   border-radius: 0;
@@ -488,19 +488,19 @@ body {
 }
 
 .hero-side-left .hero-strip-inner {
-  transform: rotateY(10deg) translateY(14px) translateZ(2px);
+  transform: rotateY(40deg) translateY(14px) translateZ(2px);
 }
 
 .hero-side-left .hero-strip-outer {
-  transform: rotateY(10deg) translateY(-12px) translateZ(12px);
+  transform: rotateY(40deg) translateY(-12px) translateZ(12px);
 }
 
 .hero-side-right .hero-strip-inner {
-  transform: rotateY(-10deg) translateY(14px) translateZ(2px);
+  transform: rotateY(-40deg) translateY(14px) translateZ(2px);
 }
 
 .hero-side-right .hero-strip-outer {
-  transform: rotateY(-10deg) translateY(-12px) translateZ(12px);
+  transform: rotateY(-40deg) translateY(-12px) translateZ(12px);
 }
 
 .reel-modal[hidden] {
