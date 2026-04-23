@@ -441,9 +441,9 @@ body {
   position: absolute;
   top: 1.5rem;
   bottom: 2.2rem;
-  width: min(39vw, 470px);
+  width: min(35vw, 390px);
   display: flex;
-  gap: clamp(0.5rem, 1.15vw, 1.1rem);
+  gap: clamp(0.65rem, 1.15vw, 1.15rem);
   align-items: flex-end;
   pointer-events: none;
   perspective: 1200px;
@@ -459,10 +459,10 @@ body {
 }
 
 .hero-strip-image {
-  width: calc((100% - (clamp(0.5rem, 1.15vw, 1.1rem) * 2)) / 3);
-  height: clamp(290px, 49vh, 390px);
+  width: calc((100% - clamp(0.65rem, 1.15vw, 1.15rem)) / 2);
+  height: clamp(360px, 58vh, 500px);
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 0;
   box-shadow: 0 18px 30px -16px rgba(8, 16, 43, 0.4);
   -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 68%, transparent 100%);
@@ -478,42 +478,29 @@ body {
 }
 
 .hero-strip-inner {
-  height: clamp(280px, 45vh, 350px);
-  transform: translateY(34px);
-}
-
-.hero-strip-mid {
-  height: clamp(312px, 49vh, 388px);
-  transform: translateY(16px);
+  height: clamp(345px, 55vh, 470px);
+  transform: translateY(14px);
 }
 
 .hero-strip-outer {
-  height: clamp(344px, 53vh, 426px);
-  transform: translateY(0);
+  height: clamp(378px, 61vh, 520px);
+  transform: translateY(-12px);
 }
 
 .hero-side-left .hero-strip-inner {
-  transform: rotateY(10deg) translateY(34px) translateZ(2px);
-}
-
-.hero-side-left .hero-strip-mid {
-  transform: rotateY(10deg) translateY(16px) translateZ(8px);
+  transform: rotateY(10deg) translateY(14px) translateZ(2px);
 }
 
 .hero-side-left .hero-strip-outer {
-  transform: rotateY(10deg) translateY(0) translateZ(14px);
+  transform: rotateY(10deg) translateY(-12px) translateZ(12px);
 }
 
 .hero-side-right .hero-strip-inner {
-  transform: rotateY(-10deg) translateY(34px) translateZ(2px);
-}
-
-.hero-side-right .hero-strip-mid {
-  transform: rotateY(-10deg) translateY(16px) translateZ(8px);
+  transform: rotateY(-10deg) translateY(14px) translateZ(2px);
 }
 
 .hero-side-right .hero-strip-outer {
-  transform: rotateY(-10deg) translateY(0) translateZ(14px);
+  transform: rotateY(-10deg) translateY(-12px) translateZ(12px);
 }
 
 .reel-modal[hidden] {
