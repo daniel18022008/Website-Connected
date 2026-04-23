@@ -441,9 +441,10 @@ body {
   position: absolute;
   top: 1.5rem;
   bottom: 2.2rem;
-  width: min(36vw, 380px);
+  width: min(39vw, 470px);
   display: flex;
-  gap: 0.95rem;
+  gap: clamp(0.5rem, 1.15vw, 1.1rem);
+  align-items: flex-end;
   pointer-events: none;
   perspective: 1200px;
   transform-style: preserve-3d;
@@ -458,7 +459,8 @@ body {
 }
 
 .hero-strip-image {
-  width: 50%;
+  width: calc((100% - (clamp(0.5rem, 1.15vw, 1.1rem) * 2)) / 3);
+  height: clamp(290px, 49vh, 390px);
   object-fit: cover;
   border-radius: 16px;
   box-shadow: 0 18px 30px -16px rgba(8, 16, 43, 0.4);
@@ -475,12 +477,43 @@ body {
   transform: rotateY(-10deg) translateZ(2px);
 }
 
-.hero-side-left .hero-strip-image:last-child {
-  transform: rotateY(10deg) translateZ(14px);
+.hero-strip-inner {
+  height: clamp(280px, 45vh, 350px);
+  transform: translateY(34px);
 }
 
-.hero-side-right .hero-strip-image:last-child {
-  transform: rotateY(-10deg) translateZ(14px);
+.hero-strip-mid {
+  height: clamp(312px, 49vh, 388px);
+  transform: translateY(16px);
+}
+
+.hero-strip-outer {
+  height: clamp(344px, 53vh, 426px);
+  transform: translateY(0);
+}
+
+.hero-side-left .hero-strip-inner {
+  transform: rotateY(10deg) translateY(34px) translateZ(2px);
+}
+
+.hero-side-left .hero-strip-mid {
+  transform: rotateY(10deg) translateY(16px) translateZ(8px);
+}
+
+.hero-side-left .hero-strip-outer {
+  transform: rotateY(10deg) translateY(0) translateZ(14px);
+}
+
+.hero-side-right .hero-strip-inner {
+  transform: rotateY(-10deg) translateY(34px) translateZ(2px);
+}
+
+.hero-side-right .hero-strip-mid {
+  transform: rotateY(-10deg) translateY(16px) translateZ(8px);
+}
+
+.hero-side-right .hero-strip-outer {
+  transform: rotateY(-10deg) translateY(0) translateZ(14px);
 }
 
 .reel-modal[hidden] {
