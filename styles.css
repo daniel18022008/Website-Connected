@@ -455,6 +455,7 @@ body {
   text-decoration: none;
   padding: 0.8rem 1.35rem;
   border-radius: 999px;
+  font-family: var(--font-ui);
   font-weight: 700;
   font-size: calc(var(--hero-button-base-size) * (var(--hero-button-scale) / 100));
   border: 1px solid transparent;
@@ -521,6 +522,18 @@ body {
 
 .hero-strip-image.is-transparent {
   opacity: 0;
+}
+
+.hero-strip-image:nth-child(1),
+.hero-strip-image:nth-child(2),
+.hero-strip-image:nth-child(3) {
+  transform: rotateY(11deg);
+}
+
+.hero-strip-image:nth-child(5),
+.hero-strip-image:nth-child(6),
+.hero-strip-image:nth-child(7) {
+  transform: rotateY(-11deg);
 }
 
 .reel-modal[hidden] {
