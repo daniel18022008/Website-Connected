@@ -52,8 +52,9 @@
 
   /* Layout controls (adjust these first) */
   --container-max-width: 1420px;
+  --content-side-padding: clamp(0.9rem, 2.4vw, 1.5rem);
   --top-bar-height: 165px;
-  --top-bar-pad-x: 1.5rem;
+  --top-bar-pad-x: var(--content-side-padding);
   --top-bar-pad-top: 1rem;
   --top-bar-pad-bottom: 1.1rem;
   --row-gap: 0.45rem;
@@ -61,7 +62,7 @@
   --top-controls-drop: 10px;
 
   --accent-height: 38px;
-  --accent-pad-x: 1.5rem;
+  --accent-pad-x: var(--content-side-padding);
 
   --brand-size: 2rem;
   --page-link-size: 0.8rem;
@@ -107,6 +108,7 @@ html {
 body {
   background-color: var(--background);
   color: var(--text);
+  font-family: var(--font-body);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -195,6 +197,7 @@ body {
 .top-controls {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 1rem;
   z-index: 2;
@@ -298,6 +301,7 @@ body {
   width: 100%;
   display: flex;
   gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .nav-btn {
@@ -353,7 +357,7 @@ body {
 .games-image-placeholder {
   position: relative;
   width: 100%;
-  min-height: var(--games-media-height);
+  min-height: clamp(430px, 68vh, var(--games-media-height));
   background: linear-gradient(to bottom, #f4efe6 0%, #f8f4ed 72%, var(--background) 100%);
   overflow: hidden;
   display: flex;
@@ -402,7 +406,7 @@ body {
 
 .games-overlay {
   font-family: var(--font-title);
-  font-size: calc(var(--hero-title-base-size) * (var(--hero-title-scale) / 100));
+  font-size: clamp(2rem, 8.2vw, calc(var(--hero-title-base-size) * (var(--hero-title-scale) / 100)));
   font-weight: 800;
   color: #ffffff;
   text-align: center;
@@ -412,7 +416,7 @@ body {
 
 .games-subtitle {
   font-family: var(--font-body);
-  font-size: calc(var(--hero-subtitle-base-size) * (var(--hero-subtitle-scale) / 100));
+  font-size: clamp(0.88rem, 1.8vw, calc(var(--hero-subtitle-base-size) * (var(--hero-subtitle-scale) / 100)));
   font-weight: 400;
   color: #d4d4d4;
   text-align: center;
@@ -438,7 +442,7 @@ body {
 .hero-kicker {
   font-family: var(--font-kicker);
   color: #0099ff;
-  font-size: calc(var(--hero-kicker-base-size) * (var(--hero-kicker-scale) / 100));
+  font-size: clamp(0.75rem, 1.35vw, calc(var(--hero-kicker-base-size) * (var(--hero-kicker-scale) / 100)));
   letter-spacing: 0.22em;
   font-weight: 700;
 }
@@ -452,11 +456,12 @@ body {
 }
 
 .hero-btn {
+  font-family: var(--font-body);
   text-decoration: none;
   padding: 0.8rem 1.35rem;
   border-radius: 999px;
   font-weight: 700;
-  font-size: calc(var(--hero-button-base-size) * (var(--hero-button-scale) / 100));
+  font-size: clamp(0.84rem, 1.4vw, calc(var(--hero-button-base-size) * (var(--hero-button-scale) / 100)));
   border: 1px solid transparent;
   transition: transform 0.15s ease, box-shadow 0.2s ease;
   cursor: pointer;
@@ -484,6 +489,27 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.85),
     inset 0 -1px 0 rgba(156, 197, 255, 0.35),
     0 14px 30px -22px rgba(18, 70, 156, 0.7);
+}
+
+.quick-edit-note {
+  width: 100%;
+  padding: 0.75rem var(--content-side-padding);
+  background: #e8f4ff;
+  border-top: 1px solid #c0def8;
+  border-bottom: 1px solid #c0def8;
+}
+
+.quick-edit-note-inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.quick-edit-note p {
+  font-size: 0.92rem;
+}
+
+.quick-edit-note code {
+  font-family: "Courier New", Courier, monospace;
 }
 
 
@@ -577,6 +603,14 @@ body {
     --hero-button-scale: 95;
   }
 
+  .top-controls {
+    align-items: flex-start;
+  }
+
+  .search-wrap {
+    width: 100%;
+  }
+
   .hero-video-row,
   .hero-strip-row,
   .hero-strip-darken {
@@ -598,6 +632,21 @@ body {
     --hero-subtitle-scale: 88;
     --hero-kicker-scale: 82;
     --hero-button-scale: 90;
+  }
+  .page-nav,
+  .accent-inner {
+    gap: 0.6rem 0.9rem;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-btn {
+    width: 100%;
+    text-align: center;
   }
 }
 
