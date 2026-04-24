@@ -12,7 +12,8 @@ const SITE_CONTENT = {
   heroSubtitle: 'Games, systems, and interactive experiences.',
   heroSubtitleSecond: 'Built with creativity and code.',
   projectsButton: 'Explore Projects',
-  reelButton: '▶ Watch Reel'
+  reelButton: '▶ Watch Reel',
+  cardboardFrameText: 'CRAFTED WITH CODE, BUILT TO SCALE.'
 };
 
 const escapedRegex = /[.*+?^${}()|[\]\\]/g;
@@ -24,7 +25,8 @@ function applySiteContent() {
     ['.js-edit-hero-subtitle', SITE_CONTENT.heroSubtitle],
     ['.js-edit-hero-subtitle-2', SITE_CONTENT.heroSubtitleSecond],
     ['.js-edit-projects-button', SITE_CONTENT.projectsButton],
-    ['.js-edit-reel-button', SITE_CONTENT.reelButton]
+    ['.js-edit-reel-button', SITE_CONTENT.reelButton],
+    ['.js-edit-cardboard-text', SITE_CONTENT.cardboardFrameText]
   ];
 
   contentTargets.forEach(([selector, value]) => {
@@ -211,7 +213,10 @@ function startHeroStripRotation() {
   });
 
   window.setInterval(() => {
-    const available = heroImages.filter((image) => !image.classList.contains('is-transparent'));
+    const available = heroImages.filter((image) => {
+      if (image.classList.contains('is-transparent')) return false;
+      return window.getComputedStyle(image).display !== 'none';
+    });
     if (available.length === 0) return;
 
     const strip = available[Math.floor(Math.random() * available.length)];

@@ -526,6 +526,30 @@ body {
   opacity: 0;
 }
 
+.hero-cardboard-frame {
+  width: 100%;
+  min-height: 114px;
+  margin-top: 0;
+  background-image:
+    linear-gradient(rgba(34, 28, 22, 0.35), rgba(34, 28, 22, 0.35)),
+    url("Images/cardboard.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem;
+}
+
+.hero-cardboard-frame-text {
+  font-family: var(--font-kicker);
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 0.12em;
+  font-size: clamp(1rem, 2.1vw, 1.4rem);
+}
+
 .reel-modal[hidden] {
   display: none;
 }
@@ -589,22 +613,24 @@ body {
   }
 
   .hero-video-row,
+  .hero-strip-row,
   .hero-strip-darken {
-    display: none;
-  }
-
-  .hero-strip-row {
     left: 0;
     right: 0;
   }
 
+  .hero-strip-video:nth-child(n + 3),
   .hero-strip-image:nth-child(n + 3) {
     display: none;
   }
 
+  .hero-strip-video,
   .hero-strip-image {
     flex: 0 0 50%;
     width: 50%;
+  }
+
+  .hero-strip-image {
     opacity: 0.45;
   }
 
@@ -642,6 +668,10 @@ body {
 
   .hero-strip-image {
     opacity: 0.36;
+  }
+
+  .hero-cardboard-frame {
+    min-height: 96px;
   }
 }
 
