@@ -477,7 +477,7 @@ body {
   right: -0.7rem;
   height: clamp(460px, 70vh, 670px);
   display: flex;
-  gap: 0.35rem;
+  gap: 0;
   align-items: flex-start;
   justify-content: space-between;
   pointer-events: none;
@@ -491,17 +491,17 @@ body {
   min-width: 0;
   height: 100%;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 0;
   box-shadow: 0 18px 30px -16px rgba(8, 16, 43, 0.4);
-  -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 68%, transparent 100%);
+  -webkit-mask-image: none;
+  mask-image: none;
   transform-origin: top center;
   transform-style: preserve-3d;
   opacity: 1;
-  transition: opacity 0.45s ease;
+  transition: opacity 2s ease;
 }
 
-.hero-strip-image.is-fading {
+.hero-strip-image.is-transparent {
   opacity: 0;
 }
 

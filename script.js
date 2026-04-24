@@ -170,31 +170,18 @@ function startHeroStripRotation() {
   const heroImages = Array.from(document.querySelectorAll('.js-hero-image'));
   if (heroImages.length === 0) return;
 
-  const imagePool = Array.from({ length: 16 }, (_, i) => `Images/Games/img${i + 1}.jpg`);
+  window.setInterval(() => {
+    const available = heroImages.filter((image) => !image.classList.contains('is-transparent'));
+    if (available.length === 0) return;
 
-  function queueNextSwap() {
-    const delayMs = 5000 + Math.floor(Math.random() * 5001);
+    const strip = available[Math.floor(Math.random() * available.length)];
+    const visiblePause = 5000 + Math.floor(Math.random() * 5001);
+
+    strip.classList.add('is-transparent');
     window.setTimeout(() => {
-      const strip = heroImages[Math.floor(Math.random() * heroImages.length)];
-      if (!(strip instanceof HTMLImageElement)) {
-        queueNextSwap();
-        return;
-      }
-
-      const options = imagePool.filter((path) => path !== strip.getAttribute('src'));
-      const nextSrc = options[Math.floor(Math.random() * options.length)] ?? imagePool[0];
-      strip.classList.add('is-fading');
-
-      window.setTimeout(() => {
-        strip.src = nextSrc;
-        strip.classList.remove('is-fading');
-      }, 450);
-
-      queueNextSwap();
-    }, delayMs);
-  }
-
-  queueNextSwap();
+      strip.classList.remove('is-transparent');
+    }, 2000 + visiblePause);
+  }, 5000);
 }
 
 startHeroStripRotation();
