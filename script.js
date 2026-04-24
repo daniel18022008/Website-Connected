@@ -2,7 +2,40 @@ const searchInput = document.getElementById('site-search');
 const resultsList = document.getElementById('search-results');
 const searchRoot = document.getElementById('page-content');
 
+/*
+  QUICK CONTENT EDITS:
+  Update these values to change homepage text/labels without hunting through HTML.
+*/
+const SITE_CONTENT = {
+  heroKicker: 'WELCOME TO MY WEBSITE',
+  heroTitle: 'REALDAN',
+  heroSubtitle: 'Games, systems, and interactive experiences.',
+  heroSubtitleSecond: 'Built with creativity and code.',
+  projectsButton: 'Explore Projects',
+  reelButton: '▶ Watch Reel',
+  cardboardFrameText: 'CRAFTED WITH CODE, BUILT TO SCALE.'
+};
+
 const escapedRegex = /[.*+?^${}()|[\]\\]/g;
+
+function applySiteContent() {
+  const contentTargets = [
+    ['.js-edit-hero-kicker', SITE_CONTENT.heroKicker],
+    ['.js-edit-hero-title', SITE_CONTENT.heroTitle],
+    ['.js-edit-hero-subtitle', SITE_CONTENT.heroSubtitle],
+    ['.js-edit-hero-subtitle-2', SITE_CONTENT.heroSubtitleSecond],
+    ['.js-edit-projects-button', SITE_CONTENT.projectsButton],
+    ['.js-edit-reel-button', SITE_CONTENT.reelButton],
+    ['.js-edit-cardboard-text', SITE_CONTENT.cardboardFrameText]
+  ];
+
+  contentTargets.forEach(([selector, value]) => {
+    const element = document.querySelector(selector);
+    if (element && typeof value === 'string') {
+      element.textContent = value;
+    }
+  });
+}
 
 function setActivePageLink() {
   const pageLinks = document.querySelectorAll('.page-btn');
@@ -134,6 +167,7 @@ function jumpToMatch(match, query) {
   mark.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
+applySiteContent();
 setActivePageLink();
 
 if (searchInput && resultsList) {
@@ -179,7 +213,10 @@ function startHeroStripRotation() {
   });
 
   window.setInterval(() => {
-    const available = heroImages.filter((image) => !image.classList.contains('is-transparent'));
+    const available = heroImages.filter((image) => {
+      if (image.classList.contains('is-transparent')) return false;
+      return window.getComputedStyle(image).display !== 'none';
+    });
     if (available.length === 0) return;
 
     const strip = available[Math.floor(Math.random() * available.length)];
