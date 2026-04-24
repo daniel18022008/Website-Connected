@@ -168,19 +168,40 @@ setRandomHeroImages();
 
 function startHeroStripRotation() {
   const heroImages = Array.from(document.querySelectorAll('.js-hero-image'));
+  const heroVideos = Array.from(document.querySelectorAll('.js-strip-video'));
   if (heroImages.length === 0) return;
+
+  heroVideos.forEach((video) => {
+    if (video instanceof HTMLVideoElement) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  });
 
   window.setInterval(() => {
     const available = heroImages.filter((image) => !image.classList.contains('is-transparent'));
     if (available.length === 0) return;
 
     const strip = available[Math.floor(Math.random() * available.length)];
-    const visiblePause = 5000 + Math.floor(Math.random() * 5001);
+    const stripIndex = heroImages.indexOf(strip);
+    const stripVideo = heroVideos[stripIndex];
+    const invisiblePause = 5000 + Math.floor(Math.random() * 5001);
+
+    if (stripVideo instanceof HTMLVideoElement) {
+      const duration = Number.isFinite(stripVideo.duration) ? stripVideo.duration : 0;
+      stripVideo.currentTime = duration > 0 ? Math.random() * duration : 0;
+      stripVideo.classList.add('is-active');
+      stripVideo.play().catch(() => {});
+    }
 
     strip.classList.add('is-transparent');
     window.setTimeout(() => {
       strip.classList.remove('is-transparent');
-    }, 2000 + visiblePause);
+      if (stripVideo instanceof HTMLVideoElement) {
+        stripVideo.classList.remove('is-active');
+        stripVideo.pause();
+      }
+    }, 2000 + invisiblePause);
   }, 5000);
 }
 
