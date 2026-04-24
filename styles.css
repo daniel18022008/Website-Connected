@@ -74,20 +74,20 @@
 
   --glow-height: 10px;
 
-  --games-media-height: 760px;
+  --games-media-height: 700px;
 
   /* Typography controls */
   --font-ui: "code_next", Arial, Helvetica, sans-serif;
   --font-title: "Big Deal", "mont_blanc", serif;
   --font-kicker: "mont_blanc", Arial, Helvetica, sans-serif;
   --font-body: "code_next", Arial, Helvetica, sans-serif;
-  --hero-title-base-size: 6.1rem;
-  --hero-subtitle-base-size: 1.08rem;
-  --hero-kicker-base-size: 0.95rem;
-  --hero-button-base-size: 0.95rem;
+  --hero-title-base-size: 5.2rem;
+  --hero-subtitle-base-size: 1.2rem;
+  --hero-kicker-base-size: 0.78rem;
+  --hero-button-base-size: 0.88rem;
 
   /* Percentage-based scaling (100 = original size) */
-  --hero-title-scale: 84;
+  --hero-title-scale: 94;
   --hero-subtitle-scale: 100;
   --hero-kicker-scale: 100;
   --hero-button-scale: 100;
@@ -349,7 +349,7 @@ body {
 }
 
 .games-hero {
-  padding: 1rem var(--accent-pad-x) 2rem;
+  padding: 0.85rem var(--accent-pad-x) 1.7rem;
   margin-top: 0;
 }
 
@@ -364,7 +364,7 @@ body {
   min-height: var(--games-media-height);
   background: linear-gradient(180deg, #f7f2e8 0%, #f4eee2 100%);
   border: 1px solid rgba(28, 51, 82, 0.08);
-  border-radius: 26px;
+  border-radius: 20px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.55),
     0 18px 46px -38px rgba(17, 40, 72, 0.55);
@@ -372,7 +372,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2.3rem 2rem 2.4rem;
+  padding: 1.85rem 1.5rem 1.9rem;
 }
 
 .games-overlay {
@@ -381,8 +381,8 @@ body {
   font-weight: 800;
   color: #12203b;
   text-align: center;
-  letter-spacing: 0.03em;
-  line-height: 0.92;
+  letter-spacing: 0.02em;
+  line-height: 0.9;
 }
 
 .games-subtitle {
@@ -405,36 +405,31 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 0.65rem;
   text-align: center;
-  width: min(620px, 100%);
-  padding: 1.75rem 2rem 1.6rem;
-  border-radius: 24px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0.35) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.72),
-    0 22px 40px -34px rgba(19, 42, 71, 0.55);
+  width: min(520px, 100%);
+  padding: 0;
 }
 
 .hero-kicker {
   font-family: var(--font-kicker);
   color: #0c90e7;
   font-size: calc(var(--hero-kicker-base-size) * (var(--hero-kicker-scale) / 100));
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   font-weight: 700;
 }
 
 .hero-actions {
   margin-top: 1rem;
   display: flex;
-  gap: 0.85rem;
+  gap: 0.7rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .hero-btn {
   text-decoration: none;
-  padding: 0.8rem 1.45rem;
+  padding: 0.68rem 1.2rem;
   border-radius: 999px;
   font-weight: 700;
   font-size: calc(var(--hero-button-base-size) * (var(--hero-button-scale) / 100));
@@ -451,14 +446,14 @@ body {
 .hero-btn-primary {
   background: #0099ff;
   color: #ffffff;
-  box-shadow: 0 12px 24px -16px rgba(11, 80, 160, 0.8);
+  box-shadow: 0 10px 20px -16px rgba(11, 80, 160, 0.8);
 }
 
 .hero-btn-secondary {
   color: #0d66c6;
-  border-color: rgba(13, 102, 198, 0.5);
-  background: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 10px 20px -22px rgba(18, 70, 156, 0.7);
+  border-color: rgba(13, 102, 198, 0.6);
+  background: rgba(252, 248, 241, 0.92);
+  box-shadow: 0 10px 20px -24px rgba(18, 70, 156, 0.7);
 }
 
 .hero-scroll {
@@ -473,11 +468,11 @@ body {
 
 .hero-side {
   position: absolute;
-  top: 2.4rem;
-  bottom: 2rem;
-  width: min(36vw, 500px);
+  top: 1.75rem;
+  bottom: 1.75rem;
+  width: min(39vw, 560px);
   display: flex;
-  gap: 0.75rem;
+  gap: 0.42rem;
   align-items: flex-end;
   pointer-events: none;
   perspective: 1200px;
@@ -493,10 +488,10 @@ body {
 }
 
 .hero-strip-image {
-  width: calc((100% - 1.5rem) / 3);
-  height: clamp(420px, 65vh, 600px);
+  width: calc((100% - 0.42rem) / 2);
+  height: clamp(430px, 64vh, 590px);
   object-fit: cover;
-  border-radius: 18px;
+  border-radius: 11px;
   box-shadow: 0 18px 34px -24px rgba(8, 16, 43, 0.5);
   -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 74%, transparent 100%);
@@ -512,26 +507,17 @@ body {
 }
 
 .hero-strip-inner {
-  height: clamp(430px, 56vh, 520px);
-  transform: translateY(48px);
-}
-
-.hero-strip-middle {
-  height: clamp(490px, 61vh, 570px);
-  transform: translateY(20px);
+  height: clamp(410px, 56vh, 515px);
+  transform: translateY(42px);
 }
 
 .hero-strip-outer {
-  height: clamp(560px, 68vh, 640px);
-  transform: translateY(-8px);
+  height: clamp(520px, 67vh, 615px);
+  transform: translateY(-6px);
 }
 
 .hero-side-left .hero-strip-inner {
-  transform: rotateY(10deg) translateY(48px) translateZ(2px);
-}
-
-.hero-side-left .hero-strip-middle {
-  transform: rotateY(10deg) translateY(20px) translateZ(8px);
+  transform: rotateY(10deg) translateY(42px) translateZ(2px);
 }
 
 .hero-side-left .hero-strip-outer {
@@ -539,11 +525,7 @@ body {
 }
 
 .hero-side-right .hero-strip-inner {
-  transform: rotateY(-10deg) translateY(48px) translateZ(2px);
-}
-
-.hero-side-right .hero-strip-middle {
-  transform: rotateY(-10deg) translateY(20px) translateZ(8px);
+  transform: rotateY(-10deg) translateY(42px) translateZ(2px);
 }
 
 .hero-side-right .hero-strip-outer {
