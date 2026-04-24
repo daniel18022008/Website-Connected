@@ -404,7 +404,7 @@ body {
   font-family: var(--font-title);
   font-size: calc(var(--hero-title-base-size) * (var(--hero-title-scale) / 100));
   font-weight: 800;
-  color: #101a33;
+  color: #ffffff;
   text-align: center;
   letter-spacing: 0.03em;
   line-height: 0.92;
@@ -414,7 +414,7 @@ body {
   font-family: var(--font-body);
   font-size: calc(var(--hero-subtitle-base-size) * (var(--hero-subtitle-scale) / 100));
   font-weight: 400;
-  color: #646f80;
+  color: #d4d4d4;
   text-align: center;
   line-height: 1.4;
 }
@@ -486,15 +486,7 @@ body {
     0 14px 30px -22px rgba(18, 70, 156, 0.7);
 }
 
-.hero-scroll {
-  margin-top: 2.4rem;
-  display: inline-flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  align-items: center;
-  color: #7b8087;
-  font-size: 0.8rem;
-}
+
 
 .hero-strip-row {
   position: absolute;
