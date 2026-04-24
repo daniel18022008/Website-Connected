@@ -452,6 +452,7 @@ body {
 }
 
 .hero-btn {
+  font-family: var(--font-body);
   text-decoration: none;
   padding: 0.8rem 1.35rem;
   border-radius: 999px;
@@ -523,6 +524,111 @@ body {
   opacity: 0;
 }
 
+.about-preview {
+  width: 100%;
+  background: linear-gradient(180deg, #060d1a 0%, #091326 55%, #071020 100%);
+  padding: 2rem var(--accent-pad-x) 2.4rem;
+}
+
+.about-preview-inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.about-preview-card {
+  border: 1px solid rgba(77, 139, 255, 0.35);
+  border-radius: 18px;
+  padding: 2rem 2.1rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.75rem;
+  background: linear-gradient(100deg, rgba(11, 25, 49, 0.96) 0%, rgba(10, 22, 45, 0.9) 100%);
+  box-shadow: 0 16px 45px -32px rgba(0, 153, 255, 0.8);
+}
+
+.about-preview-left h2,
+.about-preview-left p,
+.about-preview-kicker,
+.about-preview-btn,
+.about-stat-item strong,
+.about-stat-item span {
+  font-family: var(--font-body);
+}
+
+.about-preview-kicker {
+  color: #4aa3ff;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  margin-bottom: 0.55rem;
+}
+
+.about-preview-left h2 {
+  color: #eff5ff;
+  font-size: 2.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.about-preview-left p {
+  color: #b8c5dc;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 58ch;
+}
+
+.about-preview-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0.7rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid rgba(104, 167, 255, 0.4);
+  color: #dfeaff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.about-preview-stats {
+  display: grid;
+  align-content: center;
+  gap: 0.7rem;
+}
+
+.about-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid rgba(90, 145, 219, 0.35);
+  border-radius: 12px;
+  padding: 0.6rem 0.75rem;
+  background: rgba(15, 31, 58, 0.4);
+}
+
+.about-stat-icon {
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(19, 44, 81, 0.75);
+  font-size: 1rem;
+}
+
+.about-stat-item strong {
+  display: block;
+  color: #4aa3ff;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.about-stat-item span {
+  display: block;
+  color: #a8bbd9;
+  font-size: 0.76rem;
+  margin-top: 0.2rem;
+}
+
 .reel-modal[hidden] {
   display: none;
 }
@@ -589,6 +695,10 @@ body {
 
   .hero-actions {
     gap: 0.7rem;
+  }
+
+  .about-preview-card {
+    grid-template-columns: 1fr;
   }
 }
 
