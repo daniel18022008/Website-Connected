@@ -81,10 +81,16 @@
   --font-title: "Big Deal", "mont_blanc", serif;
   --font-kicker: "mont_blanc", Arial, Helvetica, sans-serif;
   --font-body: "code_next", Arial, Helvetica, sans-serif;
-  --hero-title-size: 6.1rem;
-  --hero-subtitle-size: 1.08rem;
-  --hero-kicker-size: 0.95rem;
-  --hero-button-size: 0.95rem;
+  --hero-title-base-size: 6.1rem;
+  --hero-subtitle-base-size: 1.08rem;
+  --hero-kicker-base-size: 0.95rem;
+  --hero-button-base-size: 0.95rem;
+
+  /* Percentage-based scaling (100 = original size) */
+  --hero-title-scale: 100;
+  --hero-subtitle-scale: 100;
+  --hero-kicker-scale: 100;
+  --hero-button-scale: 100;
 }
 
 
@@ -358,7 +364,7 @@ body {
 
 .games-overlay {
   font-family: var(--font-title);
-  font-size: var(--hero-title-size);
+  font-size: calc(var(--hero-title-base-size) * (var(--hero-title-scale) / 100));
   font-weight: 800;
   color: #101a33;
   text-align: center;
@@ -368,7 +374,7 @@ body {
 
 .games-subtitle {
   font-family: var(--font-body);
-  font-size: var(--hero-subtitle-size);
+  font-size: calc(var(--hero-subtitle-base-size) * (var(--hero-subtitle-scale) / 100));
   font-weight: 400;
   color: #646f80;
   text-align: center;
@@ -394,7 +400,7 @@ body {
 .hero-kicker {
   font-family: var(--font-kicker);
   color: #0099ff;
-  font-size: var(--hero-kicker-size);
+  font-size: calc(var(--hero-kicker-base-size) * (var(--hero-kicker-scale) / 100));
   letter-spacing: 0.22em;
   font-weight: 700;
 }
@@ -412,7 +418,7 @@ body {
   padding: 0.8rem 1.35rem;
   border-radius: 999px;
   font-weight: 700;
-  font-size: var(--hero-button-size);
+  font-size: calc(var(--hero-button-base-size) * (var(--hero-button-scale) / 100));
   border: 1px solid transparent;
   transition: transform 0.15s ease, box-shadow 0.2s ease;
   cursor: pointer;
@@ -456,9 +462,9 @@ body {
   position: absolute;
   top: 1.2rem;
   bottom: 1.2rem;
-  width: min(41vw, 500px);
+  width: min(43vw, 540px);
   display: flex;
-  gap: 0.12rem;
+  gap: 0.04rem;
   align-items: flex-end;
   pointer-events: none;
   perspective: 1200px;
@@ -474,7 +480,7 @@ body {
 }
 
 .hero-strip-image {
-  width: calc((100% - 0.12rem) / 2);
+  width: calc((100% - 0.04rem) / 2);
   height: clamp(420px, 65vh, 600px);
   object-fit: cover;
   border-radius: 0;
@@ -566,10 +572,10 @@ body {
 
 @media (max-width: 980px) {
   :root {
-    --hero-title-size: 4.6rem;
-    --hero-subtitle-size: 1rem;
-    --hero-kicker-size: 0.85rem;
-    --hero-button-size: 0.9rem;
+    --hero-title-scale: 75;
+    --hero-subtitle-scale: 92;
+    --hero-kicker-scale: 90;
+    --hero-button-scale: 95;
   }
 
   .hero-side {
@@ -587,10 +593,10 @@ body {
 
 @media (max-width: 640px) {
   :root {
-    --hero-title-size: 3.5rem;
-    --hero-subtitle-size: 0.95rem;
-    --hero-kicker-size: 0.78rem;
-    --hero-button-size: 0.85rem;
+    --hero-title-scale: 57;
+    --hero-subtitle-scale: 88;
+    --hero-kicker-scale: 82;
+    --hero-button-scale: 90;
   }
 }
 
