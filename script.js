@@ -211,6 +211,17 @@ const reelModal = document.getElementById('reel-modal');
 const openReelButton = document.querySelector('.js-open-reel');
 const closeReelButtons = document.querySelectorAll('.js-close-reel');
 const reelVideo = reelModal?.querySelector('.reel-video');
+const accentBar = document.querySelector('.js-accent-bar');
+
+const UI_CONFIG = {
+  accentStickyOffset: 160
+};
+
+function getStickyOffset() {
+  const topBarHeightVar = getComputedStyle(document.documentElement).getPropertyValue('--top-bar-height').trim();
+  const parsed = Number.parseInt(topBarHeightVar, 10);
+  return Number.isFinite(parsed) ? parsed : UI_CONFIG.accentStickyOffset;
+}
 
 function closeReel() {
   if (!reelModal) return;
@@ -242,3 +253,23 @@ document.addEventListener('keydown', (event) => {
     closeReel();
   }
 });
+
+function updateAccentStickyState() {
+  if (!accentBar) return;
+  const shouldStick = window.scrollY > getStickyOffset();
+  document.body.classList.toggle('accent-sticky', shouldStick);
+}
+
+function setupAccentHoverPanel() {
+  if (!accentBar) return;
+
+  const openPanel = () => accentBar.classList.add('is-expanded');
+  const closePanel = () => accentBar.classList.remove('is-expanded');
+
+  accentBar.addEventListener('mouseenter', openPanel);
+  accentBar.addEventListener('mouseleave', closePanel);
+}
+
+window.addEventListener('scroll', updateAccentStickyState, { passive: true });
+updateAccentStickyState();
+setupAccentHoverPanel();
