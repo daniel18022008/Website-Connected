@@ -61,6 +61,7 @@
   --top-controls-drop: 10px;
 
   --accent-height: 38px;
+  --accent-expanded-height: 240px;
   --accent-pad-x: 1.5rem;
 
   --brand-size: 2rem;
@@ -110,6 +111,10 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+body.accent-sticky {
+  padding-top: var(--accent-height);
 }
 
 .page-btn,
@@ -286,18 +291,71 @@ body {
 }
 
 .accent-bar {
+  position: relative;
   width: 100%;
-  height: var(--accent-height);
+  min-height: var(--accent-height);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
   padding: 0 var(--accent-pad-x);
   background: linear-gradient(to bottom, var(--accent-dark) 0%, var(--accent) 24%, var(--accent) 100%);
+  overflow: hidden;
+  transition: min-height 0.35s ease;
+  z-index: 8;
+}
+
+body.accent-sticky .accent-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.accent-bar.is-expanded {
+  min-height: var(--accent-expanded-height);
 }
 
 .accent-inner {
   width: 100%;
   display: flex;
   gap: 1.25rem;
+  align-items: center;
+  min-height: var(--accent-height);
+  z-index: 2;
+}
+
+.accent-hover-panel {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+  padding: 0 0 1rem;
+}
+
+.accent-bar.is-expanded .accent-hover-panel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.accent-hover-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.accent-hover-image {
+  border-radius: 8px;
+  min-height: 130px;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.accent-bar.is-expanded .accent-hover-image {
+  opacity: 1;
 }
 
 .nav-btn {
@@ -402,7 +460,7 @@ body {
 
 .games-overlay {
   font-family: var(--font-title);
-  font-size: calc(var(--hero-title-base-size) * (var(--hero-title-scale) / 100));
+  font-size: clamp(2.6rem, 7vw, calc(var(--hero-title-base-size) * (var(--hero-title-scale) / 100)));
   font-weight: 800;
   color: #ffffff;
   text-align: center;
@@ -412,7 +470,7 @@ body {
 
 .games-subtitle {
   font-family: var(--font-body);
-  font-size: calc(var(--hero-subtitle-base-size) * (var(--hero-subtitle-scale) / 100));
+  font-size: clamp(0.92rem, 1.7vw, calc(var(--hero-subtitle-base-size) * (var(--hero-subtitle-scale) / 100)));
   font-weight: 400;
   color: #d4d4d4;
   text-align: center;
@@ -438,7 +496,7 @@ body {
 .hero-kicker {
   font-family: var(--font-kicker);
   color: #0099ff;
-  font-size: calc(var(--hero-kicker-base-size) * (var(--hero-kicker-scale) / 100));
+  font-size: clamp(0.8rem, 1.4vw, calc(var(--hero-kicker-base-size) * (var(--hero-kicker-scale) / 100)));
   letter-spacing: 0.22em;
   font-weight: 700;
 }
@@ -456,10 +514,11 @@ body {
   padding: 0.8rem 1.35rem;
   border-radius: 999px;
   font-weight: 700;
-  font-size: calc(var(--hero-button-base-size) * (var(--hero-button-scale) / 100));
+  font-size: clamp(0.88rem, 1.35vw, calc(var(--hero-button-base-size) * (var(--hero-button-scale) / 100)));
   border: 1px solid transparent;
   transition: transform 0.15s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  font-family: var(--font-ui);
 }
 
 .hero-btn:hover,
@@ -471,6 +530,33 @@ body {
   background: #0099ff;
   color: #ffffff;
   box-shadow: 0 12px 22px -16px rgba(29, 86, 233, 0.85);
+}
+
+.cardboard-frame {
+  background-color: var(--background);
+  padding: 1.8rem var(--accent-pad-x);
+}
+
+.cardboard-frame-inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  min-height: 180px;
+  border-radius: 12px;
+  background-image: linear-gradient(rgba(20, 20, 20, 0.45), rgba(20, 20, 20, 0.45)), url("Images/cardboard.webp");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1.2rem;
+}
+
+.cardboard-frame-inner p {
+  color: #ffffff;
+  font-family: var(--font-ui);
+  font-size: clamp(1rem, 2.1vw, 1.6rem);
+  font-weight: 700;
 }
 
 .hero-btn-secondary {
@@ -577,6 +663,19 @@ body {
     --hero-button-scale: 95;
   }
 
+  .top-controls {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .search-wrap {
+    width: 100%;
+  }
+
+  .accent-hover-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero-video-row,
   .hero-strip-row,
   .hero-strip-darken {
@@ -598,6 +697,22 @@ body {
     --hero-subtitle-scale: 88;
     --hero-kicker-scale: 82;
     --hero-button-scale: 90;
+  }
+  .top-bar {
+    min-height: auto;
+  }
+
+  .top-bar-logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  .page-nav {
+    gap: 0.65rem;
+  }
+
+  .accent-hover-grid {
+    grid-template-columns: 1fr;
   }
 }
 
