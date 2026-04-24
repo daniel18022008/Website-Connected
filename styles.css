@@ -402,7 +402,7 @@ body {
   font-family: var(--font-title);
   font-size: calc(var(--hero-title-base-size) * (var(--hero-title-scale) / 100));
   font-weight: 800;
-  color: #101a33;
+  color: #eeeeee;
   text-align: center;
   letter-spacing: 0.03em;
   line-height: 0.92;
@@ -412,7 +412,7 @@ body {
   font-family: var(--font-body);
   font-size: calc(var(--hero-subtitle-base-size) * (var(--hero-subtitle-scale) / 100));
   font-weight: 400;
-  color: #646f80;
+  color: #e2e2e2;
   text-align: center;
   line-height: 1.4;
 }
